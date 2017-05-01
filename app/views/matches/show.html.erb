@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Player a:</strong>
+  <%= @match.player_a_id %>
+</p>
+
+<p>
+  <strong>Player b:</strong>
+  <%= @match.player_b_id %>
+</p>
+
+<p>
+  <strong>Result:</strong>
+  <%= @match.result %>
+</p>
+
+<%= link_to 'Edit', edit_match_path(@match) %> |
+<%= link_to 'Back', matches_path %>
