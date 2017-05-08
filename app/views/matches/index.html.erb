@@ -18,9 +18,9 @@
         <td><%= match.player_a_id %></td>
         <td><%= match.player_b_id %></td>
         <td><%= match.result %></td>
-        <td><%= link_to 'Show', match %></td>
-        <td><%= link_to 'Edit', edit_match_path(match) %></td>
-        <td><%= link_to 'Destroy', match, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', club_match_path(@club, match) %></td>
+        <td><%= link_to 'Edit', edit_club_match_path(@club, match) %></td>
+        <td><%= link_to 'Destroy', club_match_path(@club, match), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

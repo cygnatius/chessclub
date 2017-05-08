@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
-  resources :players
   	resources :clubs do
   		resources :players
   		resources :matches do
   			resources :players
   		end
 		resources :tournaments do
+			resources :players
 	  		resources :matches do
 	  			resources :players
 	  		end

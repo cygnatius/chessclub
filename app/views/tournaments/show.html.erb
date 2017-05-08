@@ -16,4 +16,11 @@
 </p>
 
 <%= link_to 'Edit', edit_club_tournament_path(@tournament) %> |
-<%= link_to 'Back', club_tournaments_path(@club) %>
+<%= link_to 'Back', club_tournaments_path(@club) %> |
+<a class="btn btn-default" href="#" role="button">Add Players</a>
+<% if @tournament.players.any? %>
+
+<% else %>
+	<p>No players currently enrolled in this tournament.</p>
+<% end %>
+<%= button_to 'Add Players', club_tournament_path(@club, @tournament), :class => "btn btn-primary" %>
