@@ -15,7 +15,7 @@ class TournamentsController < ApplicationController
 
   # GET /tournaments/new
   def new
-    @tournament = Tournament.new
+    @tournament = @club.tournaments.new
   end
 
   # GET /tournaments/1/edit
@@ -25,11 +25,11 @@ class TournamentsController < ApplicationController
   # POST /tournaments
   # POST /tournaments.json
   def create
-    @tournament = Tournament.new(tournament_params)
+    @tournament = @club.tournaments.new(tournament_params)
 
     respond_to do |format|
       if @tournament.save
-        format.html { redirect_to club_tournament_path(@tournament), notice: 'Tournament was successfully created.' }
+        format.html { redirect_to club_tournament_path(@club, @tournament), notice: 'Tournament was successfully created.' }
         format.json { render :show, status: :created, location: @tournament }
       else
         format.html { render :new }
@@ -57,7 +57,7 @@ class TournamentsController < ApplicationController
   def destroy
     @tournament.destroy
     respond_to do |format|
-      format.html { redirect_to tournaments_url, notice: 'Tournament was successfully destroyed.' }
+      format.html { redirect_to club_tournaments_url, notice: 'Tournament was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

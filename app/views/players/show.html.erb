@@ -20,10 +20,6 @@
   <%= @player.gender %>
 </p>
 
-<p>
-  <strong>Club:</strong>
-  <%= @player.club %>
-</p>
 
-<%= link_to 'Edit', edit_player_path(@player) %> |
-<%= link_to 'Back', players_path %>
+<%= link_to 'Edit', edit_club_player_path(@club, @player) %> |
+<%= link_to 'Back', club_path(@club) %>

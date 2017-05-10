@@ -19,7 +19,9 @@
 <%= link_to 'Back', club_tournaments_path(@club) %> |
 <a class="btn btn-default" href="#" role="button">Add Players</a>
 <% if @tournament.players.any? %>
-
+	<% @tournament.players.each do |tp| %>
+		<% tp.firstname + ' ' + tp.lastname %>
+	<% end %>
 <% else %>
 	<p>No players currently enrolled in this tournament.</p>
 <% end %>
