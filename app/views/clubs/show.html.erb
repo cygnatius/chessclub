@@ -23,9 +23,9 @@
           <td><%= tournament.title %></td>
           <td><%= tournament.timelimit %></td>
           <td><%= tournament.format %></td>
-          <td><%= link_to 'Show', club_tournament_path([@club, tournament]) %></td>
-          <td><%= link_to 'Edit', edit_club_tournament_path([@club, tournament]) %></td>
-          <td><%= link_to 'Destroy', club_tournament_path([@club, tournament]), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Show', user_club_tournament_path(current_user, @club, tournament) %></td>
+          <td><%= link_to 'Edit', edit_user_club_tournament_path(current_user, @club, tournament) %></td>
+          <td><%= link_to 'Destroy', user_club_tournament_path(current_user, @club, tournament), method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
     </tbody>
@@ -51,9 +51,9 @@
         <tr>
           <td><%= player.firstname %></td>
           <td><%= player.lastname %></td>
-          <td><%= link_to 'Show', club_player_path([@club, player]) %></td>
-          <td><%= link_to 'Edit', edit_club_player_path([@club, player]) %></td>
-          <td><%= link_to 'Destroy', club_player_path([@club, player]), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Show', user_club_player_path(current_user, @club, player) %></td>
+          <td><%= link_to 'Edit', edit_user_club_player_path(current_user, @club, player) %></td>
+          <td><%= link_to 'Destroy', user_club_player_path(current_user, @club, player), method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
     </tbody>
