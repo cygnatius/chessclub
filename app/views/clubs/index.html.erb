@@ -14,9 +14,9 @@
     <% @clubs.each do |club| %>
       <tr>
         <td><%= club.name %></td>
-        <td><%= link_to 'Show', club %></td>
-        <td><%= link_to 'Edit', edit_club_path(club) %></td>
-        <td><%= link_to 'Destroy', club, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', user_club_path(current_user, club) %></td>
+        <td><%= link_to 'Edit', edit_user_club_path(current_user, club) %></td>
+        <td><%= link_to 'Destroy', user_club_path(current_user, club), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Club', new_club_path %>
+<%= link_to 'New Club', new_user_club_path %>

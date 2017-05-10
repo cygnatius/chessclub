@@ -4,7 +4,7 @@ class ClubsController < ApplicationController
   # GET /clubs
   # GET /clubs.json
   def index
-    @clubs = Club.all
+    @clubs = current_user.clubs.all
   end
 
   # GET /clubs/1
@@ -14,7 +14,7 @@ class ClubsController < ApplicationController
 
   # GET /clubs/new
   def new
-    @club = Club.new
+    @club = current_user.clubs.new
   end
 
   # GET /clubs/1/edit
@@ -24,11 +24,12 @@ class ClubsController < ApplicationController
   # POST /clubs
   # POST /clubs.json
   def create
-    @club = Club.new(club_params)
+    @club = current_user.clubs.new(club_params)
 
     respond_to do |format|
       if @club.save
-        format.html { redirect_to @club, notice: 'Club was successfully created.' }
+        ClubUser.create(club_id: @club.id, user_id: current_user.id)
+        format.html { redirect_to user_club_path(current_user, @club), notice: 'Club was successfully created.' }
         format.json { render :show, status: :created, location: @club }
       else
         format.html { render :new }
@@ -56,7 +57,7 @@ class ClubsController < ApplicationController
   def destroy
     @club.destroy
     respond_to do |format|
-      format.html { redirect_to clubs_url, notice: 'Club was successfully destroyed.' }
+      format.html { redirect_to user_clubs_url, notice: 'Club was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

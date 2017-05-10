@@ -31,9 +31,9 @@
     </tbody>
   </table>
 
-  <%= link_to 'New tournament', new_club_tournament_path(@club) %> |
-  <%= link_to 'Edit', edit_club_path(@club) %> |
-  <%= link_to 'Back', clubs_path %>
+  <%= link_to 'New tournament', new_user_club_tournament_path(current_user, @club) %> |
+  <%= link_to 'Edit', edit_user_club_path(current_user, @club) %> |
+  <%= link_to 'Back', user_clubs_path(current_user) %>
 </div>
 
 <div class="col-md-6">
@@ -59,7 +59,7 @@
     </tbody>
   </table>
 
-  <%= link_to 'New player', new_club_player_path(@club) %> |
-  <%= link_to 'Edit', edit_club_path(@club) %> |
-  <%= link_to 'Back', clubs_path %>
+  <%= link_to 'New player', new_user_club_player_path(current_user, @club) %> |
+  <%= link_to 'Edit', edit_user_club_path(current_user, @club) %> |
+  <%= link_to 'Back', user_clubs_path(current_user) %>
 </div>
